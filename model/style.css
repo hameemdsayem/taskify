@@ -1,0 +1,934 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #F5F6FF;
+   
+}
+header{
+    height: 100px;
+    width: 100%;
+    background-color: #F5F6FF;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+nav{
+    height: 100px;
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.brand img{
+    height: 80px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+}
+
+nav ul li{
+    margin: 0px 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #5C03A8;
+    padding: 8px 10px;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover{
+    border-bottom: 2px solid #5C03A8;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 4px 0;
+}
+
+.hero{
+    padding-top: 150px;
+    padding-bottom: 150px;
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    background-image: linear-gradient(rgba(92, 3, 168, 0.9), rgba(17, 7, 91, 0.9)),url('/images/herobackground.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #333333;
+}
+.hero h1{
+    font-size: 100px;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    line-height: 99%;
+    color: #ffffff;
+}
+
+.hero h2{
+    font-size: 12px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero a{
+    margin-top: 60px;
+    padding: 14px 100px;
+    text-decoration: none;
+    color: #5C03A8;
+    background-color: #F5F6FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.hero a i{
+    font-size: 24px;
+    margin: 10px 25px 0px 8px;
+}
+
+.hero a:hover{
+    border: 2px solid #F5F6FF;
+    color: white;
+    background-color: rgba(92, 3, 168, 0);
+}
+
+.hero a i{
+    animation: slide 2s infinite;
+}
+
+.hero h1, .hero h2, .hero .cta-button {
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: moveIn 1s ease forwards;
+}
+
+@keyframes moveIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes slide {
+    0%, 100% {
+        transform: translatey(0);
+      }
+      50% {
+        transform: translatey(-5px);
+      }
+      100% {
+        transform: translatey(0);
+      }
+}
+
+
+#features{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#features h2{
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: #5C03A8;
+    border-bottom: 2px solid #5C03A8;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+#features ul{
+    display: flex;
+    list-style: none;
+}
+#features ul .featured{
+    background-color: #5C03A8;
+    color: #F5F6FF;
+    box-shadow: 0px 0px 70px rgba(0, 6, 255, 0.3);
+    
+}
+#features ul li{
+    height: 400px;
+    width: 200px;
+    background-color: white;
+    margin: 30px;
+    padding: 60px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 40px;
+}
+
+/*end*/
+
+#features ul li h3{
+    margin: 60px 0px 5px 0px;
+    font-size: 24px;
+}
+#features ul li p{
+    font-size: 14px;
+}
+
+
+#about-us{
+    padding-top: 150px;
+    padding-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+#about-us h2{
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: #5C03A8;
+    border-bottom: 2px solid #5C03A8;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+#about-us .about{
+    width: 70%;
+    display: flex;
+}
+
+#about-us .about .text, #about-us .about .brand{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    justify-content: center;
+}
+
+#about-us .text p{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+#about-us .brand img{
+    height: 500px;
+    border-radius: 0px 100px 0px 100px;
+}
+#how-it-works{
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#how-it-works h2{
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: #5C03A8;
+    border-bottom: 2px solid #5C03A8;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+.workflow{
+    display: flex;
+}
+
+.step, .plan{
+    width: 300px;
+    background-color: #ffffff;
+    padding: 30px 70px;
+    margin: 30px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.step h3{
+    font-size: 24px;
+}
+.step p{
+    font-size: 14px;
+}
+
+.step i{
+    font-size: 20px;
+    color: #ffffff;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #5C03A8;
+    padding: 70px 20px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#pricing{
+    padding-top: 150px;
+    padding-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#pricing h2{
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: #5C03A8;
+    border-bottom: 2px solid #5C03A8;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+#pricing .plan{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 50px;
+}
+
+#pricing .plan i{
+    margin: 50px 0px;
+    font-size: 20px;
+}
+
+#pricing .plan h3{
+    font-size: 24px;
+}
+
+#pricing .plan p{
+    font-size: 14px;
+}
+
+#pricing .plan .price{
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+#pricing .plan a{
+    margin-top: 40px;
+    padding: 14px 100px;
+    text-decoration: none;
+    color: #F5F6FF;
+    background-color: #5C03A8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    border-radius: 6px;
+}
+
+#pricing .plan a:hover{
+    color: #5C03A8;
+    background-color: #ffffff;
+    border: 2px solid #5C03A8;
+}
+
+#faq{
+    padding-top: 150px;
+    padding-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+#faq h1{
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: #5C03A8;
+    border-bottom: 2px solid #5C03A8;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+.faq-list {
+    list-style: none;
+    padding: 0;
+    width: 70%;
+}
+
+.faq-list li {
+    margin: 10px 0;
+}
+
+.question {
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 20px;   
+    position: relative;
+}
+
+.question::before {
+    content: "\002B";
+    position: absolute;
+    right: 40px;
+}
+.answer {
+    border: 1px solid black;
+    padding: 20px ;
+    display: none;
+}
+
+#contactme{
+    height: auto;
+    background-image: linear-gradient(rgba(92, 3, 168, 0.9), rgba(17, 7, 91, 0.9)),url('/images/herobackground.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#contact{
+    width: 80%;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#contact .text, #contact .form{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#contact .text h2{
+    font-size: 40px;
+    color: #F5F6FF;
+}
+
+#contact .text p{
+    font-size: 16px;
+    color: #F5F6FF;
+}
+
+#contact .form{
+    justify-content: center;
+}
+
+#contact .form-group{
+    display: flex;
+    flex-direction: column;
+    color: #F5F6FF;
+}
+
+#contact .form-group label{
+    font-size: 16px;
+    padding: 8px 0px;
+}
+
+#contact .form-group input{
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+#contact .form-group textarea{
+    padding: 10px 20px;
+    height: 250px;
+    border-radius: 4px;
+}
+
+#contact button{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0px;
+    width: 100%;
+    padding: 14px 100px;
+    text-decoration: none;
+    color: #5C03A8;
+    background-color: #F5F6FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+}
+
+#contact button:hover{
+    border: 2px solid #F5F6FF;
+    color: white;
+    background-color: rgba(92, 3, 168, 0);
+}
+
+footer{
+    height: 10vh;
+    width: 100%;
+    background-color: white;
+    color:  #5C03A8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        left: -100%; 
+        width: 100%;
+        max-width: 90%; 
+        height: 90vh;
+        background-color: white;
+        padding: 0;
+        margin: 0;
+        transition: left 0.3s ease;
+        z-index: 1;
+        box-shadow: 0px 0px 70px rgba(0, 6, 255, 0.3);
+    }
+    nav ul li{
+        padding: 50px 30px;
+    }
+
+    nav ul li:hover{
+        border-bottom: 2px solid #5C03A8;
+    }
+    .menu-icon {
+        display: block; 
+        position: absolute;
+        top: 30px;
+        right: 80px;
+    }
+    nav ul.show {
+        left: 0;
+    }
+
+    #features{
+        padding-top: 100px;
+    }
+    #features h2{
+        font-size: 38px;
+    }
+    #features ul li{
+        height: 400px;
+        width: 200px;
+        background-color: white;
+        margin: 20px;
+        padding: 40px 40px;
+    }
+    #features ul li img{
+        height: 150px;
+    }
+
+    #about-us{
+        padding-top: 100px;
+    }
+
+    #about-us h2{
+        font-size: 38px;
+    }
+
+    .about{
+        flex-direction: column;
+    }
+
+    #about-us .about .text h2{
+        text-align: center;
+    }
+
+    #about-us .about .text p{
+        text-align: center;
+    }
+
+    #how-it-works{
+        padding-top: 100px;
+    }
+
+    #how-it-works h2{
+        font-size: 38px;
+    }
+    .workflow .step{
+        width: 200px;
+        padding: 20px 40px;
+        margin: 30px;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .step h3{
+        font-size: 18px;
+    }
+    .step p{
+        font-size: 12px;
+    }
+    .step i{
+        display: none;
+    }
+    #pricing{
+        padding-top: 100px;
+    }
+
+    #faq{
+        padding-top: 100px;
+    }
+
+    #contact{
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    #contact .text, #contact .form{
+        margin: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        left: -100%; 
+        width: 100%;
+        max-width: 90%; 
+        height: 90vh;
+        background-color: white;
+        padding: 0;
+        margin: 0;
+        transition: left 0.3s ease;
+        z-index: 1;
+        box-shadow: 0px 0px 70px rgba(0, 6, 255, 0.3);
+    }
+    .brand img{
+        height: 80px;
+        margin: 10px 40px;
+    }
+    nav ul li{
+        padding: 50px 30px;
+    }
+
+    nav ul li:hover{
+        border-bottom: 2px solid #5C03A8;
+    }
+    .menu-icon {
+        display: block; 
+        position: absolute;
+        top: 30px;
+        right: 80px;
+    }
+    nav ul.show {
+        left: 0;
+    }
+
+    nav, header{
+        height: 100px;
+        margin: 0;
+        padding: 0;
+    }
+    .brand img{
+        height: 40px;
+    }
+    .hero{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .hero h1{
+        font-size: 50px;
+        text-align: center;
+        font-family: 'Anton', sans-serif;
+        line-height: 101%;
+        color: #ffffff;
+    }
+    .hero a{
+        margin-top: 30px;
+        padding: 14px 60px;
+        font-size: 16px;
+    }
+    #features{
+        padding-top: 50px;
+    }
+    #features h2{
+        font-size: 30px;
+    }
+    #features ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #features ul li{
+        height: 200px;
+        width: 100px;
+        margin: 15px;
+        padding: 30px 30px;
+    }
+    #features ul li img{
+        height: 50px;
+    }
+    #features ul li h3{
+        margin: 30px 0px 2px 0px;
+        font-size: 14px;
+    }
+    #features ul li p{
+        font-size: 10px;
+    }
+
+    #about-us{
+        padding-top: 50px;
+    }
+    #about-us .about{
+        width: 90%;
+        flex-direction: column;
+    }
+    #about-us h2{
+        font-size: 30px;
+        text-align: center;
+    }
+    #about-us .text p{
+        margin-bottom: 5px;
+    }
+    #about-us .brand img{
+        height: 300px;
+        border-radius: 0px 100px 0px 100px;
+    }
+
+    #how-it-works{
+        padding-top: 50px;
+    }
+    #how-it-works h2{
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+    .workflow{
+        flex-direction: column;
+    }
+    .step, .plan{
+        width: 300px;
+        background-color: #ffffff;
+        padding: 30px 70px;
+        margin: 10px;
+    }
+    .step h3{
+        font-size: 20px;
+    }
+    .step p{
+        font-size: 12px;
+    }
+    .step i{
+        font-size: 15px;
+        padding: 50px 20px;
+    }
+    #pricing{
+        padding-top: 50px;
+    }
+    #pricing h2{
+        font-size: 30px;
+    }
+    #pricing .plan{
+        padding: 30px;
+    }
+    #pricing .plan h3{
+        font-size: 20px;
+    }
+    
+    #pricing .plan p{
+        font-size: 12px;
+    }
+    #pricing .plan a{
+        font-size: 14px;
+    }
+    #faq{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    #faq h1{
+        font-size: 30px;
+    }
+    #contact{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        flex-direction: column;
+    }
+    #contact .text h2{
+        font-size: 30px;
+        text-align: center;
+    }
+    
+    #contact .text p{
+        font-size: 14px;
+        text-align: center;
+    }
+    #contact .form{
+        width: 90%;
+        margin-top: 50px;
+    }
+
+}
+
+
+/* Your existing CSS styles can be used here */
+
+.login {
+    padding: 100px;
+    display: block;
+}
+
+.login h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: #5C03A8;
+    border-bottom: 2px solid #5C03A8;
+    border-width: 5px;
+    margin-bottom: 50px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.login form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.login .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.login .form-group label {
+    font-size: 16px;
+    margin: 4px 0px;
+}
+
+.login .form-group input {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+.login .submit-button {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0;
+    width: 100%;
+    padding: 14px;
+    text-decoration: none;
+    color: #F5F6FF;
+    background-color: #5C03A8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    border: none;
+    border-radius: 6px;
+}
+
+.login .submit-button:hover {
+    color: #5C03A8;
+    background-color: #ffffff;
+}
+
+
+.registration {
+    padding: 100px;
+    display: block;
+}
+
+.registration h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: #5C03A8;
+    border-bottom: 2px solid #5C03A8;
+    margin-bottom: 50px;
+    font-weight: 400;
+    text-align: center;
+    border-width: 5px;
+}
+
+.registration form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.registration .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.registration .form-group label {
+    font-size: 16px;
+    margin: 4px 0px;
+}
+
+.registration .form-group input {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+.registration .submit-button {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0;
+    width: 100%;
+    padding: 14px;
+    text-decoration: none;
+    color: #F5F6FF;
+    background-color: #5C03A8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    border: none;
+    border-radius: 6px;
+}
+
+.registration .submit-button:hover {
+    color: #5C03A8;
+    background-color: #ffffff;
+}
+
+.registration{
+    display: none;
+}
+
+
+
+
+
+
+
+/* Your admin dashboard-specific styles can be added here */

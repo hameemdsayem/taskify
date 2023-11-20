@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard - Taskify</title>
+    <style>
+        /* Your admin dashboard-specific styles can be added here */
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #admin-dashboard {
+            display: flex;
+            background-color: #F5F6FF;
+        }
+
+        #sidebar {
+            width: 250px;
+            background-color: #333333;
+            color: #F5F6FF;
+            padding: 20px;
+            position: fixed;
+        }
+
+        #main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        #header {
+            height: 80px;
+            background-color: #5C03A8;
+            color: #F5F6FF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        #header h1 {
+            font-size: 24px;
+        }
+
+        .dashboard-section {
+            background-color: #FFFFFF;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Styles for buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #5C03A8;
+            color: #F5F6FF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #3D0261;
+        }
+
+        /* Styles for the task popup */
+        .task-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="admin-dashboard">
+        <div id="sidebar">
+            <ul id="navigation">
+                <li><a href="#">Create New Task</a></li>
+            </ul>
+        </div>
+        <div id="main-content">
+            <div id="header">
+                <h1>Admin Dashboard</h1>
+            </div>
+
+            <!-- "Create New Task" Section -->
+            <div class="dashboard-section">
+                <h2 class="section-heading">Create New Task</h2>
+                <button class="btn" id="create-task-btn">Create Task</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Popup -->
+    <div class="task-popup" id="task-popup">
+        <div class="popup-content">
+            <span class="close-popup" id="close-popup">&times;</span>
+            <h2 id="popup-task-name">Task Name</h2>
+            <p id="popup-task-description">Task Description</p>
+            <p id="popup-task-priority">Priority: 1</p>
+            <p id="popup-task-deadline">Deadline: 2023-12-31</p>
+            <button id="delete-task-btn">Delete Task</button>
+            <button id="assign-employee-btn">Assign Employee</button>
+            <button id="remove-employee-btn">Remove Employee</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the task popup
+        function showTaskPopup(taskName, taskDescription, taskPriority, taskDeadline) {
+            const taskPopup = document.getElementById("task-popup");
+            const popupTaskName = document.getElementById("popup-task-name");
+            const popupTaskDescription = document.getElementById("popup-task-description");
+            const popupTaskPriority = document.getElementById("popup-task-priority");
+            const popupTaskDeadline = document.getElementById("popup-task-deadline");
+
+            popupTaskName.textContent = taskName;
+            popupTaskDescription.textContent = taskDescription;
+            popupTaskPriority.textContent = "Priority: " + taskPriority;
+            popupTaskDeadline.textContent = "Deadline: " + taskDeadline;
+
+            taskPopup.style.display = "flex";
+        }
+
+        // Function to hide the task popup
+        function hideTaskPopup() {
+            const taskPopup = document.getElementById("task-popup");
+            taskPopup.style.display = "none";
+        }
+
+        // Attach event listener to the "Create New Task" button
+        const createTaskButton = document.getElementById("create-task-btn");
+        createTaskButton.addEventListener("click", function () {
+            showTaskPopup("New Task", "Task Description", 1, "2023-12-31");
+        });
+
+        // Attach event listener to the close button in the popup
+        const closePopupButton = document.getElementById("close-popup");
+        closePopupButton.addEventListener("click", hideTaskPopup);
+    </script>
+</body>
+</html>
