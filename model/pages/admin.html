@@ -1,172 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <title>Admin Dashboard - Taskify</title>
-    <style>
-        /* Your admin dashboard-specific styles can be added here */
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        #admin-dashboard {
-            display: flex;
-            background-color: #F5F6FF;
-        }
-
-        #sidebar {
-            width: 250px;
-            background-color: #333333;
-            color: #F5F6FF;
-            padding: 20px;
-            position: fixed;
-        }
-
-        #main-content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-
-        #header {
-            height: 80px;
-            background-color: #5C03A8;
-            color: #F5F6FF;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        #header h1 {
-            font-size: 24px;
-        }
-
-        .dashboard-section {
-            background-color: #FFFFFF;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .dashboard-section h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        /* Styles for buttons */
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #5C03A8;
-            color: #F5F6FF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #3D0261;
-        }
-
-        /* Styles for the task popup */
-        .task-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup-content {
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .close-popup {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
+
 <body>
-    <div id="admin-dashboard">
-        <div id="sidebar">
-            <ul id="navigation">
-                <li><a href="#">Create New Task</a></li>
-            </ul>
-        </div>
-        <div id="main-content">
-            <div id="header">
-                <h1>Admin Dashboard</h1>
-            </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-md ml-sm-auto col-lg-10 m-auto px-4">
+                <!-- Header -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Admin Dashboard</h1>
 
-            <!-- "Create New Task" Section -->
+                    <div class="d-flex ">
+                        <a href="#" class="px-4 m-auto">hameem2023</a>
+                        <button class="btn btn-primary">Logout</button>
+                    </div>
+                </div>
+
+                <!-- "Create New Task" Section -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Create New Task</h5>
+                        <button class="btn btn-primary" id="create-task-btn">Create Task</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Row with Two Columns -->
+<div class="container-fluid">
+    <div class="row mt-5 p-10">
+        <!-- Column for "All Tasks" -->
+        <div class="col-md-4 m-auto">
             <div class="dashboard-section">
-                <h2 class="section-heading">Create New Task</h2>
-                <button class="btn" id="create-task-btn">Create Task</button>
+                <h2 class="section-heading">All Tasks</h2>
+                <!-- All Tasks content goes here -->
+                <ul id="all-tasks-list"></ul>
+            </div>
+        </div>
+    
+        <!-- Column for "Completed Tasks" -->
+        <div class="col-md-4 m-auto">
+            <div class="dashboard-section">
+                <h2 class="section-heading">Completed Tasks</h2>
+                <!-- Completed Tasks content goes here -->
+                <ul id="completed-tasks-list"></ul>
             </div>
         </div>
     </div>
+    </div>
+    </div>
+</div>
 
-    <!-- Task Popup -->
-    <div class="task-popup" id="task-popup">
-        <div class="popup-content">
-            <span class="close-popup" id="close-popup">&times;</span>
-            <h2 id="popup-task-name">Task Name</h2>
-            <p id="popup-task-description">Task Description</p>
-            <p id="popup-task-priority">Priority: 1</p>
-            <p id="popup-task-deadline">Deadline: 2023-12-31</p>
-            <button id="delete-task-btn">Delete Task</button>
-            <button id="assign-employee-btn">Assign Employee</button>
-            <button id="remove-employee-btn">Remove Employee</button>
+<!-- Task Popup -->
+<div class="modal" id="task-popup">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Create New Task</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Task Title Input -->
+                <div class="form-group">
+                    <label for="task-title">Task Title:</label>
+                    <input type="text" class="form-control" id="task-title" placeholder="Enter task title">
+                </div>
+
+                <!-- Task Description Input -->
+                <div class="form-group">
+                    <label for="task-description">Task Description:</label>
+                    <textarea class="form-control" id="task-description" rows="3" placeholder="Enter task description"></textarea>
+                </div>
+
+                <!-- Task Assignee Input -->
+                <div class="form-group">
+                    <label for="task-assignee">Task Assignee:</label>
+                    <input type="text" class="form-control" id="task-assignee" placeholder="Enter task assignee name">
+                </div>
+
+                <!-- "Create Task" Button -->
+                <button type="button" class="btn btn-primary btn-block" id="create-task-popup-btn">Create Task</button>
+            </div>
         </div>
     </div>
+</div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
         // Function to show the task popup
-        function showTaskPopup(taskName, taskDescription, taskPriority, taskDeadline) {
-            const taskPopup = document.getElementById("task-popup");
-            const popupTaskName = document.getElementById("popup-task-name");
-            const popupTaskDescription = document.getElementById("popup-task-description");
-            const popupTaskPriority = document.getElementById("popup-task-priority");
-            const popupTaskDeadline = document.getElementById("popup-task-deadline");
-
-            popupTaskName.textContent = taskName;
-            popupTaskDescription.textContent = taskDescription;
-            popupTaskPriority.textContent = "Priority: " + taskPriority;
-            popupTaskDeadline.textContent = "Deadline: " + taskDeadline;
-
-            taskPopup.style.display = "flex";
+        function showTaskPopup() {
+            $('#task-popup').modal('show');
         }
 
-        // Function to hide the task popup
-        function hideTaskPopup() {
-            const taskPopup = document.getElementById("task-popup");
-            taskPopup.style.display = "none";
+        // Function to create a new task and update the "All Tasks" section
+        function createTask() {
+            const taskTitle = $('#task-title').val();
+            const taskDescription = $('#task-description').val();
+            const taskAssignee = $('#task-assignee').val();
+
+            // Update the "All Tasks" section
+            const allTasksList = $('#all-tasks-list');
+            const newTaskItem = `<li>${taskTitle} - ${taskAssignee}</li>`;
+            allTasksList.append(newTaskItem);
+
+            // Clear input fields
+            $('#task-title').val('');
+            $('#task-description').val('');
+            $('#task-assignee').val('');
+
+            // Hide the task popup
+            $('#task-popup').modal('hide');
         }
 
-        // Attach event listener to the "Create New Task" button
+        // Attach event listener to the "Create Task" button
         const createTaskButton = document.getElementById("create-task-btn");
-        createTaskButton.addEventListener("click", function () {
-            showTaskPopup("New Task", "Task Description", 1, "2023-12-31");
-        });
+        createTaskButton.addEventListener("click", showTaskPopup);
 
-        // Attach event listener to the close button in the popup
-        const closePopupButton = document.getElementById("close-popup");
-        closePopupButton.addEventListener("click", hideTaskPopup);
+        // Attach event listener to the "Create Task" button in the popup
+        const createTaskPopupButton = document.getElementById("create-task-popup-btn");
+        createTaskPopupButton.addEventListener("click", createTask);
     </script>
 </body>
+
 </html>
