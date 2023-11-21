@@ -35,7 +35,7 @@
 
     <section class="registration">
         <h2>Register for Taskify</h2>
-        <form id="registration-form">
+        <form id="registration-form" action="" method="post">
             <div class="form-group">
                 <label for="full-name">Full Name</label>
                 <input type="text" id="full-name" name="full-name" required>
@@ -48,8 +48,17 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="submit-button">Register</button>
-            <a href="#" id="login-link">Have an account? Login!</a>
+            
+            <div class="form-group">
+                <label for="password">Who are you?</label>
+                <select name="user_type" id="">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <input type="submit" value="Register now" class="form-btn submit-button">
+                <a href="#" id="login-link">Have an account? Login!</a>
+            
         </form>
     </section>
     

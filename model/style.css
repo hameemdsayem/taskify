@@ -898,6 +898,23 @@ footer{
     border: 1px solid #ccc;
     margin-top: 5px;
 }
+.registration select{
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    font-size: 16px;
+    margin: 4px 0px;
+}
+.registration select option{
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    font-size: 16px;
+    margin: 4px 0px;
+}
+
 
 .registration .submit-button {
     font-size: 16px;

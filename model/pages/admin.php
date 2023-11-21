@@ -24,6 +24,10 @@
             height: 100vh;
             overflow-y: auto;
         }
+	#sidebar a{
+            text-decoration: none;
+            margin: 10px 0px 20px 10px;
+        }
 
         #main-content {
             margin-left: 250px;
@@ -66,7 +70,7 @@
         .modal-dialog {
             max-width: 80%;
         }
-
+        
         .task-details-popup .modal-dialog {
             max-width: 50%;
             margin: 10% auto;
@@ -89,11 +93,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer; /* Add cursor pointer for clickable effect */
-        }
-
-        .tasks-list li:hover {
-            background-color: #f5f5f5; /* Add background color on hover */
         }
 
         .tasks-list li .task-details {
@@ -105,41 +104,21 @@
             flex-shrink: 0;
         }
 
-        /* Styling for "All Tasks" and "Completed Tasks" */
-        #all-tasks-list,
-        #completed-tasks-list {
+
+        /* Styling for "All Tasks" */
+        #all-tasks-list, #completed-tasks-list{
             list-style: none;
         }
-
-        #all-tasks-list li,
-        #completed-tasks-list li {
+        #all-tasks-list li, #completed-tasks-list li {
             background-color: #d9edf7;
             border: 1px solid #bce8f1;
             padding: 20px;
         }
 
+        /* Styling for "Completed Tasks" */
         #completed-tasks-list li {
             background-color: #dff0d8;
             border: 1px solid #d6e9c6;
-        }
-
-        /* Task Details Popup Styling */
-        #task-details-popup {
-            display: none;
-            background: rgba(0, 0, 0, 0.7);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            z-index: 1050;
-        }
-
-        #task-details-popup .modal-content {
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -154,7 +133,7 @@
             <a href="#" class="text-light d-block p-3">Calendar</a>
             <a href="#" class="text-light d-block p-3">Notification</a>
             <a href="#" class="text-light d-block p-3">Profile</a>
-            <a href="#" class="text-light d-block p-3">Logout</a>
+	    <a href="/model/pages/login.html" class="text-light d-block p-3">Logout</a>
         </div>
 
         <!-- Main Content -->
@@ -179,10 +158,8 @@
                     <div class="dashboard-section">
                         <h2 class="section-heading">All Tasks</h2>
                         <!-- All Tasks content goes here -->
-                        <ul id="all-tasks-list" class="tasks-list">
-                            <li>Task 1</li>
-                            <li>Task 2</li>
-                            <!-- Add more tasks as needed -->
+                        <ul id="all-tasks-list">
+                            <li>dedsefdd</li>
                         </ul>
                     </div>
                 </div>
@@ -192,23 +169,22 @@
                     <div class="dashboard-section">
                         <h2 class="section-heading">Completed Tasks</h2>
                         <!-- Completed Tasks content goes here -->
-                        <ul id="completed-tasks-list" class="tasks-list">
-                            <!-- Completed tasks will be added dynamically -->
+                        <ul id="completed-tasks-list">
+                            <li>wadawdwa</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
+            
+
             <!-- Task Popup -->
-            <div class="modal fade" id="task-popup" tabindex="-1" role="dialog" aria-labelledby="task-popup-label"
-                aria-hidden="true">
+            <div class="modal" id="task-popup">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="task-popup-label">Create New Task</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                            <h5 class="modal-title">Create New Task</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
                             <!-- Task Form -->
@@ -232,13 +208,12 @@
                 </div>
             </div>
 
-            <!-- Task Details Popup -->
-            <div id="task-details-popup">
-                <div class="modal-dialog">
+            <div class="modal task-details-popup" id="task-details-popup" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Task Details</h5>
-                            <button type="button" class="close" onclick="hideTaskDetailsPopup()" aria-label="Close">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -252,6 +227,7 @@
                     </div>
                 </div>
             </div>
+
 
         </div>
     </div>
